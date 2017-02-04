@@ -1,4 +1,4 @@
-/* global google, handleLocationError, pos */
+/* global google */
 import Ember from 'ember';
 
 export default Ember.Service.extend({
