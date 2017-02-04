@@ -11,6 +11,12 @@ export default Ember.Service.extend({
 
       let infoWindow = new google.maps.InfoWindow({map: map});
 
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+          'Error: the geolocation service failed' : "Error: your browser doesn't support geolocation");
+      }
+
       // try HTML5 geolocation
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -29,11 +35,5 @@ export default Ember.Service.extend({
         // Browser doesn't support geolocation
         handleLocationError(false, infoWindow, map.getCenter());
       }
-  },
-
-  handleLocationError(browserHasGeolocation, infoWindow) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-      'Error: the geolocation service failed' : "Error: your browser doesn't support geolocation");
   }
 });
