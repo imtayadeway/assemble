@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('teams');
   this.route('login');
   this.route('signup');
+  this.route('alerts');
 });
 
 export default Router;

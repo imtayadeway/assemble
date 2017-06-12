@@ -1,0 +1,12 @@
+<ul>
+{{#each teams as |team|}}
+  <li data-test-team-id="{{team.id}}">
+    {{team.teamName}}
+    <ul>
+      {{#each teams.alerts as |alert|}}
+        <li data-test-alert-id="{{alert.id}}">{{alert.alertText}}</li>
+      {{/each}}
+    </ul>
+  </li>
+{{/each}}
+</ul>
